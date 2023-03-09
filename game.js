@@ -15,3 +15,7 @@ else {
 
 getComputerChoice();
 
+let input = prompt("Make your choice, if you dare...", "Rock, Paper, Scissors...shoot!");
+let playerSelection = input.toLowerCase();
+
+console.log(playerSelection)
