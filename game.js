@@ -1,3 +1,9 @@
+let playerName = prompt("I challenge you to 5 rounds of Rock, Paper, Scissors! But first...what is your name?");
+
+
+
+function playRound(playerSelection, computerSelection) {
+
 function getComputerChoice () {
     const myNumber = Math.round(Math.random() * 100);
 
@@ -15,36 +21,57 @@ else {
 
 getComputerChoice();
 
-let input = prompt("Make your choice, if you dare...", "Rock, Paper, Scissors...shoot!");
-let playerSelection = input.toLowerCase();
+function getPlayerChoice () {
+let input = prompt(`Alright ${playerName}, make your choice, if you dare...`, "Rock, Paper, Scissors...shoot!");
+if (input === null) {
+    playerSelection = "chicken";
+}
+else if (input !== null) {
+playerSelection = input.toLowerCase();
+}
+}
+
+getPlayerChoice();
 
 
 if (computerSelection == "Rock" && playerSelection == "rock" || computerSelection == "Paper" && playerSelection == "paper" || computerSelection == "Scissors" && playerSelection == "scissors") {
     outcome = `We both chose ${computerSelection}, it is a tie!`
 }
 else if (computerSelection == "Rock" && playerSelection == "scissors") {
-    outcome = "You lose! Rock breaks Scissors."
+    outcome = `${playerName} loses! Rock breaks Scissors.`
 }
 else if (computerSelection == "Paper" && playerSelection == "rock") {
-    outcome = "You lose! Paper covers Rock."
+    outcome = `${playerName} loses! Paper covers Rock.`
 }
 else if (computerSelection == "Scissors" && playerSelection == "paper") {
-    outcome = "You lose! Scissors cuts Paper."
+    outcome = `${playerName} loses! Scissors cuts Paper.`
 }
 else if (computerSelection == "Rock" && playerSelection == "paper") {
-    outcome = "You win! Paper covers Rock"
+    outcome = `${playerName} wins! Paper covers Rock`
 }
 else if (computerSelection == "Paper" && playerSelection == "scissors") {
-    outcome = "You win! Scissors cuts Paper."
+    outcome = `${playerName} wins! Scissors cuts Paper.`
 }
 else if (computerSelection == "Scissors" && playerSelection == "rock") {
-    outcome = "You win! Rock breaks Scissors."
+    outcome = `${playerName} win! Rock breaks Scissors.`
+}
+else if (playerSelection = "chicken") {
+    outcome = `Tell me, ${playerName}, are you scared?`
 }
 else {
-    outcome = "Trying to cheat huh? I caught you, you lose!"
+    outcome = `Trying to cheat huh? I caught you, ${playerName} loses!`
 }
+
 
 console.log(computerSelection);
 console.log(playerSelection);
+console.log(outcome)
+}
 
-alert(outcome)
+
+for (let i = 1; i <= 5; i++) {
+    playRound(i);
+    alert(`Round ${i}:  ${outcome}`);
+}
+
+
